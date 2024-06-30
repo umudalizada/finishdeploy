@@ -28,7 +28,7 @@ const BuyTicket = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/tickets');
+        const response = await axios.get('https://finishdeploy.onrender.com/api/tickets');
         setMovies(response.data);
         if (id) {
           const selectedMovie = response.data.find(movie => movie._id === id);
@@ -84,7 +84,7 @@ const BuyTicket = () => {
 
     if (category && event && selectedSeans) {
       try {
-        const response = await axios.get('http://localhost:3000/api/reserv', {
+        const response = await axios.get('https://finishdeploy.onrender.com/api/reserv', {
           params: { movieId: category, date: event, seans: selectedSeans }
         });
 
@@ -190,10 +190,10 @@ const BuyTicket = () => {
     };
 
     try {
-      await axios.post('http://localhost:3000/api/reserv', newReservation);
+      await axios.post('https://finishdeploy.onrender.com/api/reserv', newReservation);
 
       const updatedOrders = [...(user.orders || []), newReservation];
-      await axios.patch(`http://localhost:3000/api/users/${user._id}`, { orders: updatedOrders });
+      await axios.patch(`https://finishdeploy.onrender.com/api/users/${user._id}`, { orders: updatedOrders });
 
       const updatedUser = { ...user, orders: updatedOrders };
       localStorage.setItem('user', JSON.stringify(updatedUser));

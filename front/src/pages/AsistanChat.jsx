@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import './assets/scss/AsistanChat.scss';
 
-const socket = io('http://localhost:3000');
+const socket = io('https://finishdeploy.onrender.com');
 
 const AsistanChat = ({ username }) => {
   const [message, setMessage] = useState('');

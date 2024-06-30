@@ -50,7 +50,7 @@ const Login = () => {
 
   const handleSubmit = async (values) => {
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", {
+      const res = await axios.post("https://finishdeploy.onrender.com/auth/login", {
         email: values.email,
         password: values.password,
       });
@@ -148,7 +148,7 @@ const Login = () => {
     try {
       const verifyCode = RandomCode();
       const res = await axios.post(
-        "http://localhost:3000/auth/reset-password",
+        "https://finishdeploy.onrender.com/auth/reset-password",
         {
           email: values.email,
         }
@@ -216,7 +216,7 @@ const Login = () => {
   const handleResetPasswordSubmit = async (values) => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/auth/updatePassword",
+        "https://finishdeploy.onrender.com/auth/updatePassword",
         {
           email: resetEmail,
           newPass: values.newPass,
